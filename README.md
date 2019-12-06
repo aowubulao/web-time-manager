@@ -2,7 +2,7 @@
 
 > 一款日程提醒网页。
 >
-> Vue+element开发，后端开发写的前端，水平有限。后端使用Springboot开发。
+> Vue+element开发，水平有限。后端使用Springboot开发。
 >
 > 对电脑端适配不算友好。手机访问还行。
 
