@@ -1,5 +1,3 @@
-<title>登录</title>
-
 <template>
   <div class="login-background" style="background-color: #F6F7F8">
     <br><br><br><br><br>
