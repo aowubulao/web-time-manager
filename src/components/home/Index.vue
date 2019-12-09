@@ -1,10 +1,10 @@
 <template>
     <div @touchmove.prevent @mousewheel.prevent>
         <div class="div1">
-            <p style="font-size: 80px; font-weight: 300;">{{day}}</p>
-            <p style="font-weight: 400;font-size: 20px;">{{calender.sun}}  {{calender.date}}</p><br>
+            <p style="font-size: 80px; font-weight: 300;" @click="transDay">{{calender.moon}}</p>
+            <p style="font-weight: 400;font-size: 20px;">{{calender.sun}}  {{calender.date}}  {{calender.festival}}</p><br>
             <p class="words-style">{{calender.words}}</p><br>
-            <div class="div2">
+            <div class="div2" >
                 <hr width="40px" color="#A9B4AC"><br>
                 <p>{{calender.author}}</p>
             </div>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+    let index;
     export default {
         data() {
             return {
@@ -57,10 +58,21 @@
                 let axios = require('axios');
                 let ret = await axios.get("/api/item/calender/" + this.calender.index).then(ret => {
                     if (ret.status === 200) {
+                        this.imgSrc = '/img/timaner/' + this.calender.index + '.jpg';
+                        index = this.calender.index;
                         this.calender = ret.data;
+                        this.calender.index = index;
                     }
                 }).catch(error => {
                 });
+            },
+            transDay () {
+                if (this.calender.index > '20191202') {
+                    this.calender.index -= 1;
+                    this.getCalender();
+                }
+
+
             }
         },
         created () {
@@ -78,7 +90,6 @@
             this.show3 = true;
             this.setIndex();
             this.getCalender();
-            this.imgSrc = '/img/timaner/' + this.calender.index + '.jpg';
         }
     }
 </script>

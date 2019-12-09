@@ -2,7 +2,7 @@
     <div>
         <div style="text-align: center; margin-top: 30px"><img src="../../assets/title.png" width="200px" height="50px"></div><br><br><br>
         <div style="font-size: 24px;text-align: center;color: black">
-            <div>demo测试版</div><br>
+            <div>版本信息:V-0.0.1</div><br>
             <div style="font-size: 18px">当前用户:{{email}}</div><br>
         </div>
 

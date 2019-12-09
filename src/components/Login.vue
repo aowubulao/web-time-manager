@@ -27,7 +27,7 @@
             <el-button type="primary" @click="submitForm('ruleForm')" style="align-content: center; width: 230px; background-color: #1890ff" :loading="isLoading">登  录</el-button>
           </el-form-item>
           <div style="text-align: center"><p style="color: #c9d6df">没有账号？<a type="primary" @click="goRegister" style="color: #1890ff">点此注册</a></p></div>
-          <div style="text-align: center;margin-top: 8px"><a type="primary" @click="" style="color: #c9d6df">忘记密码</a></div>
+          <div style="text-align: center;margin-top: 8px"><a type="primary" @click="goReset" style="color: #c9d6df">忘记密码</a></div>
         </el-form>
 
       </div>
@@ -140,6 +140,9 @@
       },
       goRegister: function () {
         this.$router.push('register');
+      },
+      goReset: function () {
+        this.$router.push('reset');
       },
       setCookie: function () {
         this.$cookie.set("cookie-uid", this.loginUser.id, 1);

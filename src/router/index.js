@@ -18,6 +18,7 @@ const routes = [
   { path: '/', redirect: '/login' },
   { path: '/login', component: (resolve) => require(['../components/Login.vue'], resolve), meta: { title: 'Timaner | 登录' },},
   { path: '/register', component: (resolve) => require(['../components/Register.vue'], resolve), meta: { title: 'Timaner | 注册' } },
+  { path: '/reset', component: (resolve) => require(['../components/Reset.vue'], resolve), meta: { title: 'Timaner | 重置密码' } },
   { path: '/home', component: (resolve) => require(['../components/Home.vue'], resolve), meta: { title: 'Timaner' },
     children: [
       { path: '/home', redirect: '/home/index' },
