@@ -1,30 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import md5 from 'js-md5'
-import cookie from 'vue-cookie'
-
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-
-
-Vue.prototype.$md5 = md5
-Vue.prototype.$cookie = cookie;
-Vue.prototype.$nprogress = NProgress;
 
 Vue.use(VueRouter)
 
-
+const Login = ()=>import("../components/Login.vue")
+const Register = ()=>import("../components/Register.vue")
+const Reset = ()=>import("../components/Reset.vue")
+const Home = ()=>import("../components/Home.vue")
+const Index = ()=>import("../components/home/Index.vue")
+const Schedule = ()=>import("../components/home/Schedule.vue")
+const User = ()=>import("../components/home/User.vue")
 const routes = [
   { path: '/', redirect: '/login' },
-  { path: '/login', component: (resolve) => require(['../components/Login.vue'], resolve), meta: { title: 'Timaner | 登录' },},
-  { path: '/register', component: (resolve) => require(['../components/Register.vue'], resolve), meta: { title: 'Timaner | 注册' } },
-  { path: '/reset', component: (resolve) => require(['../components/Reset.vue'], resolve), meta: { title: 'Timaner | 重置密码' } },
-  { path: '/home', component: (resolve) => require(['../components/Home.vue'], resolve), meta: { title: 'Timaner' },
+  { path: '/login', component: Login, meta: { title: 'Timaner | 登录' },},
+  { path: '/register', component: Register, meta: { title: 'Timaner | 注册' } },
+  { path: '/reset', component: Reset, meta: { title: 'Timaner | 重置密码' } },
+  { path: '/home', component: Home, meta: { title: 'Timaner' },
     children: [
       { path: '/home', redirect: '/home/index' },
-      { path: '/home/index', component: (resolve) => require(['../components/home/Index.vue'], resolve), meta: { title: 'Timaner' } },
-      { path: '/home/schedule', component: (resolve) => require(['../components/home/Schedule.vue'], resolve), meta: { title: 'Timaner' } },
-      { path: '/home/User', component: (resolve) => require(['../components/home/User.vue'], resolve), meta: { title: 'Timaner' } }
+      { path: '/home/index', component: Index, meta: { title: 'Timaner' } },
+      { path: '/home/schedule', component: Schedule, meta: { title: 'Timaner' } },
+      { path: '/home/User', component: User, meta: { title: 'Timaner' } }
     ]
   },
 ]
@@ -41,4 +37,3 @@ router.beforeEach((to, from, next) => {
 })
 
 export default router
-
