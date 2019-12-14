@@ -6,11 +6,9 @@
             <div style="font-size: 18px">当前用户:{{email}}</div><br>
         </div>
 
-
         <div style="text-align: center">
             <el-button type="primary" @click="quitLogin()" style="text-align: center; background-color: #1890ff">退出登录</el-button><br>
         </div>
-
     </div>
 </template>
 
@@ -44,7 +42,6 @@
             setTimeout(function () {
                 that.email = email;
             }, 1);
-
         }
     }
 </script>

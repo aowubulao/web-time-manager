@@ -7,7 +7,6 @@
 
         <div style="text-align: center; margin-top: 10px"><img src="../assets/title.png" width="200px" height="50px"></div>
         <div style="text-align: center; color: gray; letter-spacing: 1px; margin-top: 6px"><p>Manage your time</p></div>
-        <!--<el-button style="float: right; padding: 3px 0" type="text" @click="goRegister()">注册</el-button>-->
       </div>
       <div class="text item">
         <!-- 输入框 -->
@@ -15,10 +14,12 @@
 
         <el-form :model="user" :rules="rules" ref="ruleForm" label-width="50px" >
           <el-form-item  prop="email">
-            <el-input v-model="user.email" placeholder="邮箱" class="input-width" prefix-icon="el-icon-message" style="width: 230px"></el-input>
+            <el-input v-model="user.email" placeholder="邮箱" class="input-width" prefix-icon="el-icon-message"
+                      style="width: 230px"/>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input v-model="user.password" type="password" show-password placeholder="密码" style="width: 230px" prefix-icon="el-icon-lock"></el-input>
+            <el-input v-model="user.password" type="password" show-password placeholder="密码" style="width: 230px"
+                      prefix-icon="el-icon-lock"/>
           </el-form-item>
           <br>
           <el-form-item>
@@ -31,29 +32,20 @@
       </div>
     </el-card>
     <br><br>
-    <div v-if="loginMessage == '登录成功！'" style="text-align: center">
-      <el-button type="primary" :loading="true">{{loginMessage}}</el-button>
-    </div>
-    <div  v-if="loginMessage == '邮箱或密码错误！'">
-      <el-alert class="login-fail"
-              :title="loginMessage"
-              type="error">
-      </el-alert>
-    </div>
   </div>
 </template>
 
 <script>
   export default {
     data() {
-      var validatePhone = (rule, value, callback) => {
+      let validatePhone = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入邮箱!'));
         } else {
           callback();
         }
       };
-      var validatePass = (rule, value, callback) => {
+      let validatePass = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码!'));
         } else {
@@ -105,10 +97,10 @@
       },
       login: async function () {
         const axios = require('axios');
-        var params = new URLSearchParams();
+        let params = new URLSearchParams();
         params.append('email', this.user.email);
         params.append('password', this.$md5(this.$md5(this.$md5(this.user.password))));
-        var ret = await axios.post("/api/item/user", params).then(ret => {
+        let ret = await axios.post("/api/item/user", params).then(ret => {
           if (ret.status === 200) {
             this.loginUser = ret.data;
             this.loginSuccess();
@@ -159,11 +151,6 @@
 </script>
 
 <style>
-  .login-fail {
-    margin-right: auto;
-    margin-left: auto;
-    width: 300px;
-  }
 
   .login-background {
     height: 100%;

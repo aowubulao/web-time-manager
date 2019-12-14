@@ -8,7 +8,6 @@
                 <hr width="40px" color="#A9B4AC"><br>
                 <p>{{calender.author}}</p>
             </div>
-
         </div>
         <div v-if="screenWidth > 1200">
             <img src="../../assets/img/pc/pc-2.jpg" class="img-style">
@@ -16,7 +15,6 @@
         <div v-else>
             <img :src="imgSrc" class="img-style">
         </div>
-
     </div>
 
 </template>
@@ -28,7 +26,6 @@
             return {
                 show3: true,
                 screenWidth: '',
-                leftWidth: '',
                 day: '',
                 imgSrc: '',
                 calender: {
@@ -71,8 +68,6 @@
                     this.calender.index -= 1;
                     this.getCalender();
                 }
-
-
             }
         },
         created () {
@@ -80,9 +75,6 @@
         },
         mounted() {
             this.screenWidth = screen.availWidth;
-            this.leftWidth = parseInt((screen.availWidth - 320) / 2);
-            this.leftWidth = this.leftWidth + 'px';
-            console.log(this.leftWidth);
             let uid = this.$cookie.get('cookie-uid');
             if (uid === null) {
                 this.$router.push('/');
@@ -109,48 +101,16 @@
         margin-bottom: 100px;
     }
 
-    .calender {
-        margin-left: 9%;
-        margin-top: 90px;
-        border: 1px solid white;
-        height: 500px;
-        border-radius: 0px;
-        width: 320px;
-        position: absolute;
-        z-index: 9999;
-    }
-    .calender-top {
-        font-weight: 700;
-        margin-left: 100px;
-        width: 120px;
-        height: 20px;
-        background-color: white;
-    }
-    .calender-top-word {
-        width: 120px;
-        height: 16px;
-        margin-top: 2px;
-        margin-left: 2px;
-        text-align: center;
-        letter-spacing: 1px;
-        font-size: 9px;
-        color: #A9B4AC;
-        position: absolute;
-        z-index: 9998;
-    }
-
     .div1 {
         margin-left: 20px;
         color: white;
         margin-top: 200px;
         height: 400px;
         width: 320px;
-        /*border: 1px solid white;*/
         position: absolute;
         z-index: 9999;
     }
     .words-style {
-        /*margin-left: 16px;*/
         line-height: 40px;
         font-weight: 200;
         letter-spacing: 1px;

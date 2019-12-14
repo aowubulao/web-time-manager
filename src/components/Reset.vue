@@ -12,18 +12,23 @@
                 <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="50px" class="demo-ruleForm">
                     <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="50px" class="demo-ruleForm">
                         <el-form-item label="" prop="email">
-                            <el-input type="text" :disabled="form1" v-model="ruleForm2.email" autocomplete="off" class="input-width" placeholder="请输入邮箱" prefix-icon="el-icon-message"></el-input>
+                            <el-input type="text" :disabled="form1" v-model="ruleForm2.email" autocomplete="off"
+                                      class="input-width" placeholder="请输入邮箱" prefix-icon="el-icon-message"/>
                         </el-form-item>
                     </el-form>
                     <el-form-item label="" prop="checkCode">
-                        <el-input type="checkCode" v-model="ruleForm.checkCode" autocomplete="off" style="width: 120px; margin-right: 40px" placeholder="验证码" prefix-icon="el-icon-mobile"></el-input>
+                        <el-input type="checkCode" v-model="ruleForm.checkCode" autocomplete="off"
+                                  style="width: 120px; margin-right: 40px" placeholder="验证码"
+                                  prefix-icon="el-icon-mobile"/>
                         <el-button type="primary" @click="getCheckCode('ruleForm2')" :disabled="isDisable" style="background-color: #1890ff">获取</el-button>
                     </el-form-item>
                     <el-form-item label="" prop="password">
-                        <el-input :disabled="form2" type="password" v-model="ruleForm.password" autocomplete="off" class="input-width" placeholder="请输入要修改密码" prefix-icon="el-icon-lock"></el-input>
+                        <el-input :disabled="form2" type="password" v-model="ruleForm.password" autocomplete="off"
+                                  class="input-width" placeholder="请输入要修改密码" prefix-icon="el-icon-lock"/>
                     </el-form-item>
                     <el-form-item label="" prop="checkPass">
-                        <el-input :disabled="form2" type="password" v-model="ruleForm.checkPass" autocomplete="off" class="input-width" placeholder="请再次输入密码" prefix-icon="el-icon-lock"></el-input>
+                        <el-input :disabled="form2" type="password" v-model="ruleForm.checkPass" autocomplete="off"
+                                  class="input-width" placeholder="请再次输入密码" prefix-icon="el-icon-lock"/>
                     </el-form-item>
 
                     <el-form-item>
@@ -40,7 +45,7 @@
 <script>
     export default {
         data() {
-            var validateEmail = (rule, value, callback) => {
+            let validateEmail = (rule, value, callback) => {
                 if (value === '') {
                     callback(new Error('请输入邮箱!'));
                 } else {
@@ -53,7 +58,7 @@
                     }
                 }
             };
-            var validateEmailAdd = (rule, value, callback) => {
+            let validateEmailAdd = (rule, value, callback) => {
                 if (value !== '') {
                     //setTimeout(this.checkPhoneNum(), 1000)
                     this.checkEmailAdd();
@@ -64,7 +69,7 @@
                     }
                 }
             };
-            var validatePass = (rule, value, callback) => {
+            let validatePass = (rule, value, callback) => {
                 if (value === '') {
                     callback(new Error('请输入密码'));
                 } else {
@@ -74,7 +79,7 @@
                     callback();
                 }
             };
-            var validatePass2 = (rule, value, callback) => {
+            let validatePass2 = (rule, value, callback) => {
                 if (value === '') {
                     callback(new Error('请再次输入密码'));
                 } else if (value !== this.ruleForm.password) {
@@ -170,8 +175,8 @@
                 })
             },
             checkEmailAdd: async function() {
-                const axios = require('axios');
-                var ret = await axios.get("/api/item/user/email/" + this.ruleForm2.email).then(ret => {
+                let axios = require('axios');
+                let ret = await axios.get("/api/item/user/email/" + this.ruleForm2.email).then(ret => {
                     this.checkEmail = ret.data;
                 }).catch(error => {
                 })

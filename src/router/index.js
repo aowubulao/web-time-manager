@@ -3,13 +3,13 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const Login = ()=>import("../components/Login.vue")
-const Register = ()=>import("../components/Register.vue")
-const Reset = ()=>import("../components/Reset.vue")
-const Home = ()=>import("../components/Home.vue")
-const Index = ()=>import("../components/home/Index.vue")
-const Schedule = ()=>import("../components/home/Schedule.vue")
-const User = ()=>import("../components/home/User.vue")
+import Login from "../components/Login.vue"
+import Register from "../components/Register.vue"
+import Reset from "../components/Reset.vue"
+import Home from "../components/Home.vue"
+import Index from "../components/home/Index.vue"
+import Schedule from "../components/home/Schedule.vue"
+import User from "../components/home/User.vue"
 const routes = [
   { path: '/', redirect: '/login' },
   { path: '/login', component: Login, meta: { title: 'Timaner | 登录' },},

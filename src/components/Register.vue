@@ -13,27 +13,30 @@
                 <div style="margin: 20px;"></div>
                 <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="50px" class="demo-ruleForm">
                     <el-form-item label="" prop="email">
-                        <el-input type="text" v-model="ruleForm.email" autocomplete="off" class="input-width" placeholder="请输入邮箱" prefix-icon="el-icon-message"></el-input>
+                        <el-input type="text" v-model="ruleForm.email" autocomplete="off" class="input-width"
+                                  placeholder="请输入邮箱" prefix-icon="el-icon-message"/>
                     </el-form-item>
                     <el-form-item label="" prop="password">
-                        <el-input type="password" v-model="ruleForm.password" autocomplete="off" class="input-width" placeholder="请输入密码" prefix-icon="el-icon-lock"></el-input>
+                        <el-input type="password" v-model="ruleForm.password" autocomplete="off" class="input-width"
+                                  placeholder="请输入密码" prefix-icon="el-icon-lock"/>
                     </el-form-item>
                     <el-form-item label="" prop="checkPass">
-                        <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off" class="input-width" placeholder="请再次输入密码" prefix-icon="el-icon-lock"></el-input>
+                        <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off" class="input-width"
+                                  placeholder="请再次输入密码" prefix-icon="el-icon-lock"/>
                     </el-form-item>
                     <el-form-item label="" prop="checkCode">
-                        <el-input type="checkCode" v-model="ruleForm.checkCode" autocomplete="off" style="width: 120px; margin-right: 40px" placeholder="验证码" prefix-icon="el-icon-mobile"></el-input>
+                        <el-input type="checkCode" v-model="ruleForm.checkCode" autocomplete="off"
+                                  style="width: 120px; margin-right: 40px" placeholder="验证码"
+                                  prefix-icon="el-icon-mobile"/>
                         <el-button type="primary" @click="getCheckCode('ruleForm')" :disabled="isDisable" style="background-color: #1890ff">获取</el-button>
                     </el-form-item>
-
 
                     <el-form-item>
                         <el-button type="primary" @click="submitForm('ruleForm')" style="align-content: center; width: 230px; background-color: #1890ff" :loading="isLoading">注 册</el-button>
                     </el-form-item>
                     <div style="text-align: center"><p style="color: #c9d6df">已有账号？<a type="primary" @click="goLogin" style="color: #1890ff">点此登录</a></p></div>
                 </el-form>
-
-    </div>
+            </div>
         </el-card>
     </div>
 </template>
@@ -41,7 +44,7 @@
 <script>
     export default {
         data() {
-            var validateEmail = (rule, value, callback) => {
+            let validateEmail = (rule, value, callback) => {
                 if (value === '') {
                     callback(new Error('请输入邮箱!'));
                 } else {
@@ -54,7 +57,7 @@
                     }
                 }
             };
-            var validateEmailAdd = (rule, value, callback) => {
+            let validateEmailAdd = (rule, value, callback) => {
                 if (value !== '') {
                     //setTimeout(this.checkPhoneNum(), 1000)
                     this.checkEmailAdd();
@@ -65,7 +68,7 @@
                     }
                 }
             };
-            var validatePass = (rule, value, callback) => {
+            let validatePass = (rule, value, callback) => {
                 if (value === '') {
                     callback(new Error('请输入密码'));
                 } else {
@@ -75,7 +78,7 @@
                     callback();
                 }
             };
-            var validatePass2 = (rule, value, callback) => {
+            let validatePass2 = (rule, value, callback) => {
                 if (value === '') {
                     callback(new Error('请再次输入密码'));
                 } else if (value !== this.ruleForm.password) {

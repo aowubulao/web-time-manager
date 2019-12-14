@@ -1,6 +1,6 @@
 <template>
     <div style="background-color: #F6F7F8">
-        <el-backtop ></el-backtop>
+        <el-backtop/>
         <br>
         <div v-loading="loading">
             <div>
@@ -13,10 +13,11 @@
                     <el-timeline-item placement="top" color="#409EFF" v-for="item in schedule">
                         <!--<div v-if="watchDateProcess(item.date)"></div>-->
                         <el-card shadow="hover">
-                            <el-button type="danger" icon="el-icon-delete" circle style="float: right; margin-right: 3px;" size="mini"
-                                       @click="deleteVisible = true, saveSid(item.sid)"></el-button>
+                            <el-button type="danger" icon="el-icon-delete" circle
+                                       style="float: right; margin-right: 3px;" size="mini"
+                                       @click="deleteVisible = true, saveSid(item.sid)"/>
                             <!---->
-                            <h3 v-text="item.title" style="letter-spacing: 1px"></h3><br><br>
+                            <h3 v-text="item.title" style="letter-spacing: 1px"/><br><br>
                             <p>提醒时间：{{item.date}}</p>
                         </el-card>
                         <!-- delete -->
@@ -36,12 +37,14 @@
         <el-dialog title="新增" :visible.sync="scheduleFormVisible" width="310px">
             <el-form :model="submitSchedule" :rules="rules" ref="ruleForm">
                 <el-form-item label="主题" prop="title"><br>
-                    <el-input v-model="submitSchedule.title" autocomplete="off" style="width: 260px" placeholder="2-10个字符" maxlength="10"></el-input>
+                    <el-input v-model="submitSchedule.title" autocomplete="off" style="width: 260px"
+                              placeholder="2-10个字符" maxlength="10"/>
                 </el-form-item>
                 <el-form-item label="提醒时间" prop="date"><br>
-                    <el-date-picker style="width: 260px" v-model="submitSchedule.date" type="datetime" :picker-options="pickerOptions"
+                    <el-date-picker style="width: 260px" v-model="submitSchedule.date" type="datetime"
+                                    :picker-options="pickerOptions"
                                     placeholder="选择日期时间"
-                                    format="yyyy-MM-dd HH:mm"></el-date-picker >
+                                    format="yyyy-MM-dd HH:mm"/>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -233,7 +236,3 @@
         }
     }
 </script>
-
-<style>
-
-</style>
