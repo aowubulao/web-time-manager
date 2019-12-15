@@ -136,8 +136,6 @@
             getCheckCode(formName) {
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        this.form1 = true;
-                        this.form2 = false;
                         this.sendCheckCode();
                     } else {
                         console.log('error submit!!');
@@ -185,6 +183,8 @@
                 this.isDisable = true;
                 const axios = require('axios');
                 let ret = await axios.get("/api/network/email/" + this.ruleForm2.email).then(ret => {
+                    this.form1 = true;
+                    this.form2 = false;
                     this.$notify({
                         message: '已发送',
                         duration: 2000,
