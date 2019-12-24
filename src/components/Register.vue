@@ -147,7 +147,7 @@
                 params.append('email', this.ruleForm.email);
                 params.append('password', this.$md5(this.$md5(this.$md5(this.ruleForm.password))));
                 params.append('checkCode', this.ruleForm.checkCode);
-                let ret = await axios.post("/api/item/user/register", params).then(ret => {
+                let ret = await axios.post("/api/timaner/user/register", params).then(ret => {
                     this.$notify({
                         message: '注册成功！',
                         duration: 2000,
@@ -166,7 +166,7 @@
             },
             checkEmailAdd: async function() {
                 const axios = require('axios');
-                var ret = await axios.get("/api/item/user/email/" + this.ruleForm.email).then(ret => {
+                var ret = await axios.get("/api/timaner/user/email/" + this.ruleForm.email).then(ret => {
                     this.checkEmail = ret.data;
                 }).catch(error => {
                 })
@@ -174,7 +174,7 @@
             sendCheckCode : async function() {
                 this.isDisable = true;
                 const axios = require('axios');
-                let ret = await axios.get("/api/network/email/" + this.ruleForm.email).then(ret => {
+                let ret = await axios.get("/api/timaner/email/" + this.ruleForm.email).then(ret => {
                     this.$notify({
                         message: '已发送',
                         duration: 2000,

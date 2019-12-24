@@ -2,7 +2,9 @@
 
 ### 简介
 
-> 线上地址：[Timaner](https://timaner.neoniou.com)
+> 线上地址：[Timaner](https://www.neoniou.com/timaner)
+>
+> 后端： https://github.com/aowubulao/timaner-spring 
 >
 > 一款日程提醒网页，前端Vue+element开发，后端使用Springboot开发。
 >
@@ -10,11 +12,7 @@
 >
 > ps : 对电脑端适配不算友好。手机访问还行。
 
-### Project setup
 
-```
-npm install
-```
 
 ### 截图
 

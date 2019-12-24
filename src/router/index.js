@@ -7,7 +7,7 @@ import Login from "../components/Login.vue"
 import Register from "../components/Register.vue"
 import Reset from "../components/Reset.vue"
 import Home from "../components/Home.vue"
-import Index from "../components/home/Index.vue"
+import Index from "../components/home/Index"
 import Schedule from "../components/home/Schedule.vue"
 import User from "../components/home/User.vue"
 const routes = [

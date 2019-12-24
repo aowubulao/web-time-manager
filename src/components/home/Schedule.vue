@@ -146,7 +146,7 @@
             async deleteSelect() {
                 this.isDeleteDisable = true;
                 let axios = require('axios');
-                let ret = await axios.delete("/api/item/schedule/" + this.deleteSid).then(ret => {
+                let ret = await axios.delete("/api/timaner/schedule/" + this.deleteSid).then(ret => {
                     if (ret.status === 200) {
                         this.getSchedule();
                         this.$notify({
@@ -171,7 +171,7 @@
             },
             async getSchedule() {
                 let axios = require('axios');
-                let ret = await axios.get("/api/item/schedule/" + uid).then(ret => {
+                let ret = await axios.get("/api/timaner/schedule/" + uid).then(ret => {
                     if (ret.status === 200) {
                         this.loading = false;
                         this.schedule = ret.data;
@@ -190,7 +190,7 @@
                 params.append('title', this.submitSchedule.title);
                 params.append('date', this.submitSchedule.date);
                 params.append('uid', uid);
-                let ret = await axios.post("/api/item/schedule/", params).then(ret => {
+                let ret = await axios.post("/api/timaner/schedule/", params).then(ret => {
                     if (ret.status === 200) {
                         this.getSchedule();
                         this.submitSchedule.title = '';
@@ -226,7 +226,7 @@
             uid = this.$cookie.get('cookie-uid');
             email = this.$cookie.get('cookie-email');
             if (uid === null) {
-                this.$router.push('/');
+                this.$router.push('/login');
             }
             this.getSchedule();
         },

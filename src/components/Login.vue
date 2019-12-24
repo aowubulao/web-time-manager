@@ -100,7 +100,7 @@
         let params = new URLSearchParams();
         params.append('email', this.user.email);
         params.append('password', this.$md5(this.$md5(this.$md5(this.user.password))));
-        let ret = await axios.post("/api/item/user", params).then(ret => {
+        let ret = await axios.post("/api/timaner/user", params).then(ret => {
           if (ret.status === 200) {
             this.loginUser = ret.data;
             this.loginSuccess();

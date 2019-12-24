@@ -53,7 +53,7 @@
             },
             async getCalender() {
                 let axios = require('axios');
-                let ret = await axios.get("/api/item/calender/" + this.calender.index).then(ret => {
+                let ret = await axios.get("/api/timaner/calender/" + this.calender.index).then(ret => {
                     if (ret.status === 200) {
                         this.imgSrc = '/img/timaner/' + this.calender.index + '.jpg';
                         index = this.calender.index;

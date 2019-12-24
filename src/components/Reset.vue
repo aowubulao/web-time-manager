@@ -49,7 +49,6 @@
                 if (value === '') {
                     callback(new Error('请输入邮箱!'));
                 } else {
-                    //setTimeout(this.checkPhoneNum(), 1000)
                     this.checkEmailAdd();
                     if (this.checkEmail) {
                         callback(new Error('邮箱不存在!'));
@@ -60,7 +59,6 @@
             };
             let validateEmailAdd = (rule, value, callback) => {
                 if (value !== '') {
-                    //setTimeout(this.checkPhoneNum(), 1000)
                     this.checkEmailAdd();
                     if (this.checkEmail) {
                         callback(new Error('邮箱不存在!'));
@@ -155,7 +153,7 @@
                 params.append('email', this.ruleForm2.email);
                 params.append('password', this.$md5(this.$md5(this.$md5(this.ruleForm.password))));
                 params.append('checkCode', this.ruleForm.checkCode);
-                let ret = await axios.put("/api/item/user", params).then(ret => {
+                let ret = await axios.put("/api/timaner/user", params).then(ret => {
                     this.$notify({
                         message: '修改成功！',
                         duration: 2000,
@@ -174,7 +172,7 @@
             },
             checkEmailAdd: async function() {
                 let axios = require('axios');
-                let ret = await axios.get("/api/item/user/email/" + this.ruleForm2.email).then(ret => {
+                let ret = await axios.get("/api/timaner/user/email/" + this.ruleForm2.email).then(ret => {
                     this.checkEmail = ret.data;
                 }).catch(error => {
                 })
@@ -182,7 +180,7 @@
             sendCheckCode : async function() {
                 this.isDisable = true;
                 const axios = require('axios');
-                let ret = await axios.get("/api/network/email/" + this.ruleForm2.email).then(ret => {
+                let ret = await axios.get("/api/timaner/email/" + this.ruleForm2.email).then(ret => {
                     this.form1 = true;
                     this.form2 = false;
                     this.$notify({
